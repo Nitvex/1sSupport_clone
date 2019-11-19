@@ -11,7 +11,8 @@
     "settings": {
         "import/resolver": {
             "node": {
-                "extensions": [".js", ".ts", ".tsx"]
+                "extensions": [".js", ".ts", ".tsx"],
+                "paths": ["src"] // disable "unable to resolve module" when using with webpack alias
             }
         }
     },
