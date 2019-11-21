@@ -1,29 +1,30 @@
 {
-    "compilerOptions": {
-      "target": "es5",
-      "lib": [
-        "dom",
-        "dom.iterable",
-        "esnext"
-      ],
-      "allowJs": true,
-      "skipLibCheck": true,
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      "strict": true,
-      "forceConsistentCasingInFileNames": true,
-      "module": "esnext",
-      "moduleResolution": "node",
-      "resolveJsonModule": true,
-      "isolatedModules": true,
-      "baseUrl": "src", 
-      "noEmit": true,
-      "jsx": "preserve"
-    },
-    "include": [
-      "src"
-    ],
-    "paths": {
-      "components": ["./src/components"]
-    },
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "baseUrl": "src",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noEmit": true,
+    "jsx": "preserve"
+  },
+  "include": ["src"],
+  "paths": {
+    "styles": ["./src/styles"],
+    "components": ["./src/components"],
+    "pages": ["./src/pages"],
+    "store": ["./src/store"],
+    "actions": ["./src/store/actions"],
+    "action-types": ["./src/store/constants/"]
   }
+}

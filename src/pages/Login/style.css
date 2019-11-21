@@ -1,0 +1,26 @@
+button.login-btn {
+  text-transform: uppercase;
+  margin-top: 1.5rem;
+}
+
+div.margin-top {
+  margin-top: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 60vw;
+  padding: 4rem;
+  border: 1px solid gray;
+}
+
+.login-text {
+  font-size: 1.6rem;
+  color: var(--main-text-color);
+  font-family: var(--main-font);
+}
+
+.form-wrapper {
+  height: 100%;
+}

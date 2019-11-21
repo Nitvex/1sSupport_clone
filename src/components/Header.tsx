@@ -1,4 +1,4 @@
 import React from "react";
-export default function Comp() {
+export default function Header() {
   return <>Comp</>;
 }

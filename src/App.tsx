@@ -1,15 +1,13 @@
 import React from "react";
-import Comp from "components/Comp";
-import { Button } from "@material-ui/core";
+import { Provider } from "react-redux";
+import store from "./store";
+import ApplicationRouter from "./Router";
+import "styles/styles.css";
 
 export default function App() {
-  const a: Number = 5;
   return (
-    <>
-      Hello world! {a} <Comp />
-      <Button variant="contained" color="primary">
-        Hello
-      </Button>
-    </>
+    <Provider store={store}>
+      <ApplicationRouter />
+    </Provider>
   );
 }

@@ -1,48 +1,58 @@
 {
-    "parser": "babel-eslint",
-    "plugins": ["import", "prettier", "react"],
-    "extends": [
-        "eslint:recommended",
-        "plugin:import/errors",
-        "plugin:import/warnings",
-        "plugin:react/recommended",
-        "prettier"
-    ],
-    "settings": {
-        "import/resolver": {
-            "node": {
-                "extensions": [".js", ".ts", ".tsx"],
-                "paths": ["src"] // disable "unable to resolve module" when using with webpack alias
-            }
-        }
-    },
-    "env": {
-        "es6": true,
-        "browser": true,
-        "node": true,
-        "jest": true
-    },
-    "rules": {
-        "quotes": 0,
-        "no-console": 1,
-        "no-debugger": 1,
-        "no-var": 1,
-        "no-trailing-spaces": 0,
-        "eol-last": 0,
-        "no-underscore-dangle": 0,
-        "no-alert": 0,
-        "no-lone-blocks": 0,
-        "import/extensions": 1,
-        "import/no-named-as-default": 0,
-        "prettier/prettier": [
-            "error",
-            {
-                "singleQuote": false
-            }
-        ]
-    },
-    "globals": {
-        "Atomics": false,
-        "SharedArrayBuffer": false
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
     }
+  },
+  "plugins": ["import", "prettier", "react", "@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:react/recommended",
+    "prettier"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".ts", ".tsx"],
+        "paths": ["src"] // disable "unable to resolve module" when using with webpack alias
+      }
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "quotes": 0,
+    "no-console": 1,
+    "no-debugger": 1,
+    "no-var": 1,
+    "no-trailing-spaces": 0,
+    "eol-last": 0,
+    "no-underscore-dangle": 0,
+    "no-alert": 0,
+    "no-lone-blocks": 0,
+    "import/extensions": 1,
+    "import/no-named-as-default": 0,
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": false,
+        "parser": "typescript"
+      }
+    ]
+  },
+  "globals": {
+    "Atomics": false,
+    "SharedArrayBuffer": false
+  }
 }
