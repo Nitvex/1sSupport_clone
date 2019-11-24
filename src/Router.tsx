@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 
-import Header from "components/Header";
+import Header from "components/Header/Header";
 import Login from "pages/Login/Login";
 
 const mapStateToProps = (state: any) => {

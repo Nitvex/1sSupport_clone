@@ -1,0 +1,7 @@
+.header {
+  border-bottom: 1px solid var(--main-text-color);
+}
+
+.tab[aria-selected="false"] {
+  color: var(--main-text-color);
+}

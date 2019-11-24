@@ -4,7 +4,7 @@ import {
   SIGN_IN_FAILED
 } from "store/constants/action-types";
 
-import { userData, userDataKeys, responseError } from "utils/models";
+import { userData, userDataKeys, responseError } from "utils/models/userData";
 import {
   addToLocalStorage,
   getLocalStorageValuesByKeys
