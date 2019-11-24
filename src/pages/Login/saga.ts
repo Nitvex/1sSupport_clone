@@ -1,21 +1,18 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import { SIGN_IN } from "store/constants/action-types";
+import {
+  SIGN_IN,
+  SIGN_IN_SUCCEEDED,
+  SIGN_IN_FAILED
+} from "store/constants/action-types";
+
+import requestToAPI from "utils/requestToAPI";
 
 async function authorize(login: string, password: string): Promise<any> {
-  const response = await fetch(
-    "https://api.1ssupport.ru/v0.1/identity/sign-in",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        login,
-        password
-      })
-    }
-  );
-  const body = await response.json();
+  return await requestToAPI({
+    url: "https://api.1ssupport.ru/v0.1/identity/sign-in",
+    method: "POST",
+    body: { login, password }
+  });
 }
 
 function* signInUser(action: {
@@ -25,7 +22,12 @@ function* signInUser(action: {
   try {
     const { login, password } = action.payload;
     const signInResponse = yield call(authorize, login, password);
-    //yield put({ type: "SIGN_IN_SUCCEEDED", signInResponse });
+    console.log(signInResponse);
+    if (signInResponse.accessToken) {
+      yield put({ type: SIGN_IN_SUCCEEDED, payload: signInResponse });
+    } else {
+      yield put({ type: SIGN_IN_FAILED, payload: signInResponse });
+    }
   } catch (e) {
     console.log(e);
   }

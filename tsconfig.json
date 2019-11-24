@@ -24,7 +24,6 @@
     "components": ["./src/components"],
     "pages": ["./src/pages"],
     "store": ["./src/store"],
-    "actions": ["./src/store/actions"],
-    "action-types": ["./src/store/constants/"]
+    "utils": ["./src/utils"]
   }
 }

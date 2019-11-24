@@ -5,10 +5,14 @@ import { TextField } from "@material-ui/core";
 import { signIn } from "store/actions/signIn";
 
 import OCSButton from "components/OCSButton";
+import OCSLoader from "components/OCSLoader";
+
 import "./style.css";
 
-const mapStateToProps = () => {
-  return {};
+const mapStateToProps = (state: any) => {
+  return {
+    isLoading: state.signIn.isLoading
+  };
 };
 
 const mapDispatchToProps = (dispatch: any) => {
@@ -44,22 +48,26 @@ class Login extends React.Component<any, any> {
   render() {
     return (
       <div className="align-center form-wrapper">
-        <form onSubmit={(event: SyntheticEvent) => this.formSubmit(event)}>
-          <div className="login-text margin-top">Вход в систему</div>
-          <TextField
-            className="margin-top"
-            label="Логин"
-            onChange={this.onLoginChange}
-          />
-          <TextField
-            className="margin-top"
-            label="Пароль"
-            onChange={this.onPasswordChange}
-          />
-          <OCSButton className="login-btn" type="submit">
-            Войти
-          </OCSButton>
-        </form>
+        {this.props.isLoading ? (
+          <OCSLoader />
+        ) : (
+          <form onSubmit={(event: SyntheticEvent) => this.formSubmit(event)}>
+            <div className="login-text margin-top">Вход в систему</div>
+            <TextField
+              className="margin-top"
+              label="Логин"
+              onChange={this.onLoginChange}
+            />
+            <TextField
+              className="margin-top"
+              label="Пароль"
+              onChange={this.onPasswordChange}
+            />
+            <OCSButton className="login-btn" type="submit">
+              Войти
+            </OCSButton>
+          </form>
+        )}
       </div>
     );
   }
