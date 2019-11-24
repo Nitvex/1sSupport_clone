@@ -5,6 +5,7 @@ import {
 } from "store/constants/action-types";
 
 import { userData, responseError } from "utils/models";
+import { addToLocalStorage } from "utils/changeLocalStorage";
 
 const initialState = {
   signIn: {
@@ -14,7 +15,7 @@ const initialState = {
   }
 };
 
-export default function signInReducer(
+export default function loginReducer(
   state = initialState,
   action: { type: string; payload: any }
 ) {
@@ -28,6 +29,7 @@ export default function signInReducer(
         }
       };
     case SIGN_IN_SUCCEEDED:
+      addToLocalStorage(action.payload);
       return {
         ...state,
         signIn: {

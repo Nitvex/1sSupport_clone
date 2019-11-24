@@ -15,7 +15,7 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch: Function) => {
   return {
     authenticate: (login: string, password: string) => {
       dispatch(signIn(login, password));

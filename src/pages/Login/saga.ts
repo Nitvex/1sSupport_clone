@@ -22,7 +22,6 @@ function* signInUser(action: {
   try {
     const { login, password } = action.payload;
     const signInResponse = yield call(authorize, login, password);
-    console.log(signInResponse);
     if (signInResponse.accessToken) {
       yield put({ type: SIGN_IN_SUCCEEDED, payload: signInResponse });
     } else {
