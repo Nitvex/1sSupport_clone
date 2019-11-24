@@ -11,3 +11,9 @@ export function removeFromLocalStorage(objectToRemove: {
     localStorage.removeItem(key);
   });
 }
+
+export function getLocalStorageValuesByKeys(keys: string[]) {
+  return keys.reduce((acc, key) => {
+    return { ...acc, [key]: localStorage.getItem(key) };
+  }, {});
+}

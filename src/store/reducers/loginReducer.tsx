@@ -4,13 +4,16 @@ import {
   SIGN_IN_FAILED
 } from "store/constants/action-types";
 
-import { userData, responseError } from "utils/models";
-import { addToLocalStorage } from "utils/changeLocalStorage";
+import { userData, userDataKeys, responseError } from "utils/models";
+import {
+  addToLocalStorage,
+  getLocalStorageValuesByKeys
+} from "utils/changeLocalStorage";
 
 const initialState = {
   signIn: {
     isLoading: false,
-    userData: {} as userData,
+    userData: { ...getLocalStorageValuesByKeys(userDataKeys) } as userData,
     error: {} as responseError
   }
 };

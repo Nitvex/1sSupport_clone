@@ -1,14 +1,22 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { connect } from "react-redux";
 
 import Header from "components/Header";
 import Login from "pages/Login/Login";
 
-export default function ApplicationRouter() {
-  const isAuthorized = false;
+const mapStateToProps = (state: any) => {
+  return {
+    isAuthorized: state.signIn.userData.accessToken
+  };
+};
+
+const mapDispatchToProps = () => {};
+
+function ApplicationRouter(props: any) {
   return (
     <Router>
-      {isAuthorized && <Header />}
+      {props.isAuthorized && <Header />}
       <Switch>
         <Route exact path="/"></Route>
         <Route exact path="/login" component={Login}></Route>
@@ -18,3 +26,4 @@ export default function ApplicationRouter() {
     </Router>
   );
 }
+export default connect(mapStateToProps, mapDispatchToProps)(ApplicationRouter);

@@ -11,6 +11,19 @@ export type userData = {
   hasToChangePassword: string;
 };
 
+export const userDataKeys: Array<keyof userData> = [
+  "userId",
+  "roleType",
+  "firstName",
+  "secondName",
+  "lastName",
+  "statusType",
+  "accessToken",
+  "refreshToken",
+  "expires",
+  "hasToChangePassword"
+];
+
 export type responseError = {
   code: string;
   data: {

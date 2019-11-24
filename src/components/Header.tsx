@@ -1,4 +1,4 @@
 import React from "react";
 export default function Header() {
-  return <>Comp</>;
+  return <>You are logged in!</>;
 }
