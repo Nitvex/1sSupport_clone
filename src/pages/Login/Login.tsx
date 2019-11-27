@@ -1,6 +1,7 @@
 import React, { SyntheticEvent, useState } from "react";
 import { connect } from "react-redux";
 import { TextField } from "@material-ui/core";
+import { Redirect } from "react-router-dom";
 
 import { signIn } from "store/actions/signIn";
 
@@ -11,13 +12,14 @@ import "./style.css";
 
 const mapStateToProps = (state: any) => {
   return {
-    isLoading: state.signIn.isLoading
+    isLoading: state.signIn.isLoading,
+    isAuthorized: state.signIn.userData.accessToken
   };
 };
 
 const mapDispatchToProps = (dispatch: Function) => {
   return {
-    authenticate: (login: string, password: string) => {
+    signIn: (login: string, password: string) => {
       dispatch(signIn(login, password));
     }
   };
@@ -37,11 +39,12 @@ const Login = (props: any) => {
 
   const formSubmit = (event: SyntheticEvent): any => {
     event.preventDefault();
-    props.authenticate(login, password);
+    props.signIn(login, password);
   };
 
   return (
     <div className="align-center form-wrapper">
+      {props.isAuthorized && <Redirect to="/search" />}
       {props.isLoading ? (
         <OCSLoader />
       ) : (
