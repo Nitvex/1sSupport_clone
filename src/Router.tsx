@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Header from "components/Header/Header";
+import ProtectedRoute from "components/ProtectedRoute";
 import Login from "pages/Login/Login";
 
 const mapStateToProps = (state: any) => {
@@ -20,8 +21,8 @@ function ApplicationRouter(props: any) {
       <Switch>
         <Route exact path="/"></Route>
         <Route exact path="/login" component={Login}></Route>
-        <Route exact path="/search"></Route>
-        <Route exact path="/articles"></Route>
+        <ProtectedRoute exact path="/search" />
+        <ProtectedRoute exact path="/articles" />
       </Switch>
     </Router>
   );
