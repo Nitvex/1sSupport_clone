@@ -5,15 +5,7 @@ import {
   SIGN_IN_FAILED
 } from "store/constants/action-types";
 
-import requestToAPI from "utils/requestToAPI";
-
-async function authorize(login: string, password: string): Promise<any> {
-  return await requestToAPI({
-    url: "https://api.1ssupport.ru/v0.1/identity/sign-in",
-    method: "POST",
-    body: { login, password }
-  });
-}
+import signInService from "services/SignInService";
 
 function* signInUser(action: {
   type: string;
@@ -21,7 +13,7 @@ function* signInUser(action: {
 }) {
   try {
     const { login, password } = action.payload;
-    const signInResponse = yield call(authorize, login, password);
+    const signInResponse = yield call(signInService.signIn, login, password);
     if (signInResponse.accessToken) {
       yield put({ type: SIGN_IN_SUCCEEDED, payload: signInResponse });
     } else {

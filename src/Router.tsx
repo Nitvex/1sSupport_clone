@@ -20,8 +20,8 @@ function ApplicationRouter(props: any) {
       <Switch>
         <Route exact path="/"></Route>
         <Route exact path="/login" component={Login}></Route>
-        <Route path="/about"></Route>
-        <Route path="/dashboard"></Route>
+        <Route exact path="/search"></Route>
+        <Route exact path="/articles"></Route>
       </Switch>
     </Router>
   );
