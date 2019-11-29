@@ -6,6 +6,7 @@ import {
 } from "store/constants/action-types";
 
 import signInService from "services/SignInService";
+import { userData } from "utils/models/userData";
 
 function* signInUser(action: {
   type: string;
@@ -13,7 +14,11 @@ function* signInUser(action: {
 }) {
   try {
     const { login, password } = action.payload;
-    const signInResponse = yield call(signInService.signIn, login, password);
+    const signInResponse: userData = yield call(
+      signInService.signIn,
+      login,
+      password
+    );
     if (signInResponse.accessToken) {
       yield put({ type: SIGN_IN_SUCCEEDED, payload: signInResponse });
     } else {

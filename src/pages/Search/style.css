@@ -1,0 +1,17 @@
+.search-padding {
+  padding: 15%;
+  padding-top: 0%;
+}
+
+.search-field {
+  width: 60%;
+}
+
+.search-field input {
+  padding-bottom: 0.75rem;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: row;
+}

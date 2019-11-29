@@ -58,6 +58,7 @@ const Login = (props: any) => {
           <TextField
             className="margin-top"
             label="Пароль"
+            type="password"
             onChange={onPasswordChange}
           />
           <OCSButton className="login-btn" type="submit">

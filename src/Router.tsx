@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Header from "components/Header/Header";
 import ProtectedRoute from "components/ProtectedRoute";
 import Login from "pages/Login/Login";
+import Search from "pages/Search/Search";
 
 const mapStateToProps = (state: any) => {
   return {
@@ -21,7 +22,7 @@ function ApplicationRouter(props: any) {
       <Switch>
         <Route exact path="/"></Route>
         <Route exact path="/login" component={Login}></Route>
-        <ProtectedRoute exact path="/search" />
+        <ProtectedRoute exact path="/search" component={Search} />
         <ProtectedRoute exact path="/articles" />
       </Switch>
     </Router>
