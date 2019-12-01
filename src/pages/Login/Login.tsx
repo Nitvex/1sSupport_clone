@@ -10,10 +10,10 @@ import OCSLoader from "components/OCSLoader";
 
 import "./style.css";
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = ({ loginReducer }: any) => {
   return {
-    isLoading: state.signIn.isLoading,
-    isAuthorized: state.signIn.userData.accessToken
+    isLoading: loginReducer.isLoading,
+    isAuthorized: loginReducer.userData.accessToken
   };
 };
 

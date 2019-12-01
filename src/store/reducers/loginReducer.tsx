@@ -11,11 +11,9 @@ import {
 } from "utils/changeLocalStorage";
 
 const initialState = {
-  signIn: {
-    isLoading: false,
-    userData: { ...getLocalStorageValuesByKeys(userDataKeys) } as userData,
-    error: {} as responseError
-  }
+  isLoading: false,
+  userData: { ...getLocalStorageValuesByKeys(userDataKeys) } as userData,
+  error: {} as responseError
 };
 
 export default function loginReducer(
@@ -26,29 +24,20 @@ export default function loginReducer(
     case SIGN_IN:
       return {
         ...state,
-        signIn: {
-          ...state.signIn,
-          isLoading: true
-        }
+        isLoading: true
       };
     case SIGN_IN_SUCCEEDED:
       addToLocalStorage(action.payload);
       return {
-        ...state,
-        signIn: {
-          isLoading: false,
-          userData: { ...(action.payload as userData) },
-          error: {} as responseError
-        }
+        isLoading: false,
+        userData: { ...(action.payload as userData) },
+        error: {} as responseError
       };
     case SIGN_IN_FAILED:
       return {
-        ...state,
-        signIn: {
-          isLoading: false,
-          userData: {} as userData,
-          error: { ...(action.payload as responseError) }
-        }
+        isLoading: false,
+        userData: {} as userData,
+        error: { ...(action.payload as responseError) }
       };
     default:
       return state;

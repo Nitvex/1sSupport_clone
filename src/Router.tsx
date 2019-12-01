@@ -7,9 +7,9 @@ import ProtectedRoute from "components/ProtectedRoute";
 import Login from "pages/Login/Login";
 import Search from "pages/Search/Search";
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = ({ loginReducer }: any) => {
   return {
-    isAuthorized: state.signIn.userData.accessToken
+    isAuthorized: loginReducer.userData.accessToken
   };
 };
 

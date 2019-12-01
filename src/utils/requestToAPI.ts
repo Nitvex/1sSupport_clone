@@ -7,7 +7,7 @@ export default async function requestToAPI(options: {
   body?: {};
 }) {
   try {
-    const accessToken = store.getState().signIn.userData.accessToken;
+    const accessToken = store.getState().loginReducer.userData.accessToken;
     const response = await fetch(options.url, {
       method: options.method,
       headers: {

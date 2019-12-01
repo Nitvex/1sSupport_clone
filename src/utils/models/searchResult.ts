@@ -10,3 +10,10 @@ export type searchData = {
     highlightedText: string[];
   }[];
 };
+
+export const searchDataKeys: Array<keyof searchData> = [
+  "id",
+  "query",
+  "totalCount",
+  "articles"
+];

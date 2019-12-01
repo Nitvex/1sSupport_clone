@@ -8,9 +8,9 @@ import "./style.css";
 
 import { pagesConfig } from "utils/pagesConfig";
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = ({ loginReducer }: any) => {
   return {
-    roleType: state.signIn.userData.roleType
+    roleType: loginReducer.userData.roleType
   };
 };
 const mapDispatchToProps = () => {};
