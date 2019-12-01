@@ -1,5 +1,5 @@
-import { call, takeLatest } from "redux-saga/effects";
-import { SEARCH } from "store/constants/action-types";
+import { call, takeLatest, put } from "redux-saga/effects";
+import { SEARCH, SEARCH_SUCCEEDED } from "store/constants/action-types";
 
 import SearchService from "services/SearchService";
 import { searchData } from "utils/models/searchResult";
@@ -15,7 +15,7 @@ function* search(action: {
       query,
       offset
     );
-    console.log(searchResponse);
+    yield put({ type: SEARCH_SUCCEEDED, payload: searchResponse });
   } catch (e) {
     console.log(e);
   }

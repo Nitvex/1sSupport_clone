@@ -26,5 +26,13 @@
     "store": ["./src/store"],
     "utils": ["./src/utils"],
     "services": ["./src/services"]
+  },
+  "rules": {
+    "max-line-length": [
+      true,
+      {
+        "limit": 120
+      }
+    ]
   }
 }

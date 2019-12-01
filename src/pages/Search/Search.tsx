@@ -5,6 +5,7 @@ import { TextField } from "@material-ui/core";
 import { Search as SearchIcon } from "@material-ui/icons";
 import { search } from "store/actions/search";
 
+import SearchResults from "./SearchResults/SearchResults";
 import OCSButton from "components/OCSButton";
 const mapStateToProps = () => {
   return {};
@@ -42,6 +43,7 @@ const Search = (props: any) => {
           <SearchIcon />
         </OCSButton>
       </form>
+      <SearchResults />
     </div>
   );
 };
