@@ -25,6 +25,7 @@ const mapDispatchToProps = (dispatch: Function) => {
   };
 };
 
+// Are props usually typed?
 const Login = (props: any) => {
   const [login, changeLogin] = useState("");
   const [password, changePassword] = useState("");
@@ -37,7 +38,7 @@ const Login = (props: any) => {
     changePassword((event.target as HTMLInputElement).value);
   };
 
-  const formSubmit = (event: SyntheticEvent): any => {
+  const formSubmit = (event: SyntheticEvent): void => {
     event.preventDefault();
     props.signIn(login, password);
   };

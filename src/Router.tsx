@@ -7,6 +7,8 @@ import ProtectedRoute from "components/ProtectedRoute";
 import Login from "pages/Login/Login";
 import Search from "pages/Search/Search";
 
+// Should special store type be created for props type? Or any is enough?
+// How is it made in real projects?
 const mapStateToProps = ({ loginReducer }: any) => {
   return {
     isAuthorized: loginReducer.userData.accessToken
@@ -20,7 +22,7 @@ function ApplicationRouter(props: any) {
     <Router>
       {props.isAuthorized && <Header />}
       <Switch>
-        <Route exact path="/"></Route>
+        <ProtectedRoute exact path="/" component={Search}></ProtectedRoute>
         <Route exact path="/login" component={Login}></Route>
         <ProtectedRoute exact path="/search" component={Search} />
         <ProtectedRoute exact path="/articles" />

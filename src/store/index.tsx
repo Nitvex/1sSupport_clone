@@ -1,3 +1,6 @@
+/**
+ * Should reducers be placed into separated folder or in folder with component, which uses it?
+ */
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import createSagaMiddleware from "redux-saga";
 import signInSaga from "pages/Login/saga";
